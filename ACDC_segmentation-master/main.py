@@ -11,8 +11,8 @@ from actions.find_ratio import find_ratio
 
 
 # Define path location and reference image
-path_train = r'C:\Users\esteb\Documents\acdc\training'
-reference_img = r'C:\Users\esteb\Documents\acdc\reference.nii.gz'
+path_train = r'/home/laisong/ACDC2017/training_all'
+reference_img = r'/home/laisong/ACDC2017/reference.nii.gz'
 
 # Read the images
 img_dataframe = read_image_name(path_train, '.nii.gz')
