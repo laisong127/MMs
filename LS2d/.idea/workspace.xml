@@ -1,7 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6dafad57-20c6-4503-b16b-4d42107cd4b5" name="Default Changelist" comment="" />
+    <list default="true" id="6dafad57-20c6-4503-b16b-4d42107cd4b5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../LS/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transform.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/.idea/ACDC_segmentation-master.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/MISA_Project_Notebook1.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/actions/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/actions/early_stopping.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/actions/evaluate_subject.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/actions/find_ratio.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/actions/train_model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/file_management/read_images.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/file_management/split_dataset.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/metrics/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/metrics/metrics.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/models/ResidualUNet3D.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/models/buildingblocks.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/models/model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/models/model_resUnet.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/models/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/models/unet_instance_norm.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/preprocessing/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/preprocessing/find_ROI.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/preprocessing/preprocessing.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/reference.nii.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/spacing.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/transformations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/transformations/transformation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/utils/find_ratio.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/utils/utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Loss_visualized.py" beforeDir="false" afterPath="$PROJECT_DIR$/Loss_visualized.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MRIdataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/MRIdataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResNetUNet.py" beforeDir="false" afterPath="$PROJECT_DIR$/ResNetUNet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test2d.py" beforeDir="false" afterPath="$PROJECT_DIR$/test2d.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train2dunet.py" beforeDir="false" afterPath="$PROJECT_DIR$/train2dunet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acdc_challenge-master/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acdc_challenge-master/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acdc_challenge-master/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acdc_challenge-master/assets/ct-slice-27.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acdc_challenge-master/assets/ct-slice-50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acdc_challenge-master/assets/label-27.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acdc_challenge-master/assets/label-50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acdc_challenge-master/assets/pred-27.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acdc_challenge-master/assets/pred-50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acdc_challenge-master/dataset.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acdc_challenge-master/eval.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acdc_challenge-master/loss.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acdc_challenge-master/metrics.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acdc_challenge-master/metrics_acdc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acdc_challenge-master/model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acdc_challenge-master/notebooks/Data processing.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acdc_challenge-master/notebooks/EDA-2.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acdc_challenge-master/notebooks/EDA.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acdc_challenge-master/notebooks/Train-step.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acdc_challenge-master/notebooks/dataloader.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acdc_challenge-master/notebooks/inference.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acdc_challenge-master/notebooks/testing class.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acdc_challenge-master/notebooks/testing2.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acdc_challenge-master/notebooks/train.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acdc_challenge-master/notes.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acdc_challenge-master/train.py" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +84,13 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1d50wkw9NnpP9erUwITs3hb6I98" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -59,7 +133,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ResNetUNet" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="MRIdataset" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="LS" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -71,7 +145,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ResNetUNet.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MRIdataset.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -80,7 +154,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="advanced_model" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="test2d" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="LS" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -92,7 +166,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/advanced_model.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test2d.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -122,7 +196,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="u-net-2d" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="transform" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="LS" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -134,7 +208,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/u-net-2d.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/transform.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -146,10 +220,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.train2dunet" />
-        <item itemvalue="Python.ResNetUNet" />
-        <item itemvalue="Python.advanced_model" />
+        <item itemvalue="Python.transform" />
+        <item itemvalue="Python.test2d" />
         <item itemvalue="Python.Loss_visualized" />
-        <item itemvalue="Python.u-net-2d" />
+        <item itemvalue="Python.MRIdataset" />
       </list>
     </recent_temporary>
   </component>
@@ -165,5 +239,18 @@
       <updated>1591699887797</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

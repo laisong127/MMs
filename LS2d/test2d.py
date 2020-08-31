@@ -15,6 +15,7 @@ import MRIdataset
 from torch.utils.data import DataLoader
 from advanced_model import CleanU_Net
 from advanced_model import DeepSupervision_U_Net
+from ResNetUNet import ResNetUNet
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -22,7 +23,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 def saveresult2d(test_loader, model):
     i = 0
     for img, label, _, labelfile in test_loader:
-        if i<50:
+        if i < 50:
             label3d = []
             img = torch.squeeze(img)
             label = torch.squeeze(label)
@@ -42,7 +43,7 @@ def saveresult2d(test_loader, model):
                 if z == 0:
                     label3d = pred
                 else:
-                    label3d = torch.cat((label3d, pred),dim=0)
+                    label3d = torch.cat((label3d, pred), dim=0)
             print(label3d.shape)
         label = label3d.numpy().astype(float)
         label1 = label.transpose(1, 2, 0)
@@ -57,21 +58,22 @@ def test_model():
     MAX = 0
     save = 0
     # for index in range(100):
-    model = DeepSupervision_U_Net(1, 4).to(device)
-    print(model)
-    model.load_state_dict(torch.load('/home/laisong/MMs/LS/3dunet_model_save/weights_149.pth'))
+    # model = DeepSupervision_U_Net(1, 4).to(device)
+    model = ResNetUNet(4).to(device)
+    # print(model)
+    model.load_state_dict(torch.load('/home/laisong/github/ResnetUnet_model_save_lr=1e-e_0.5/weights_149.pth'))
     test_dataset = MRIdataset.LiverDataset(MRIdataset.test_imagepath, MRIdataset.test_labelpath,
-                                           MRIdataset.testimg_ids, MRIdataset.testlabel_ids,False)
+                                           MRIdataset.testimg_ids, MRIdataset.testlabel_ids, False)
 
     test_loader = DataLoader(test_dataset, batch_size=1, shuffle=False, num_workers=4)
 
     train_dataset = MRIdataset.LiverDataset(MRIdataset.imagepath, MRIdataset.labelpath,
-                                            MRIdataset.img_ids, MRIdataset.label_ids,False)
+                                            MRIdataset.img_ids, MRIdataset.label_ids, False)
 
     train_loader = DataLoader(train_dataset, batch_size=1, shuffle=False, num_workers=4)
 
     B_dataset = MRIdataset.LiverDataset(MRIdataset.B_imagepath, MRIdataset.B_labelpath,
-                                           MRIdataset.Bimg_ids, MRIdataset.Blabel_ids, False)
+                                        MRIdataset.Bimg_ids, MRIdataset.Blabel_ids, False)
 
     B_loader = DataLoader(B_dataset, batch_size=1, shuffle=False, num_workers=4)
 
@@ -114,8 +116,8 @@ def test_model():
     # new_label = nib.Nifti1Image(label, np.eye(4))
     # nib.save(new_label, r'/home/peng/Desktop/CROP/train2test/label_%d.nii.gz' % i)
 
-    for img, label in test_loader:
-        if i<50:
+    for img, label, _, _ in test_loader:
+        if i < 50:
             img = torch.squeeze(img)
             label = torch.squeeze(label)
             LV_dice = 0

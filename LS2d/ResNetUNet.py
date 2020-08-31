@@ -85,12 +85,13 @@ class ResNetUNet(nn.Module):
         out = self.conv_last(x)
 
         return out
-if __name__ == "__main__":
-    # A full forward pass
-    im = torch.randn(1, 1, 512, 512)
-    model = ResNetUNet(4)
-    x = model(im)
-    print(x.shape)
-    del model
-    del x
-    # print(x.shape)
+
+# if __name__ == "__main__":
+#     # A full forward pass
+#     im = torch.randn(1, 1, 512, 512)
+#     model = ResNetUNet(4)
+#     x = model(im)
+#     print(x.shape)
+#     del model
+#     del x
+#     # print(x.shape)

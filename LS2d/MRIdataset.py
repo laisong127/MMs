@@ -8,17 +8,17 @@ from scipy.ndimage import rotate
 from torch.utils.data import DataLoader
 from torchvision import transforms
 
-imagepath = r'../Different_Vendor(1)/TRAIN_A'
-labelpath = r'../Different_Vendor(1)/TRAIN_LABEL_A'
-imgid = r'../Different_Vendor(1)/Img_A_train.txt'
-labelid = r'../Different_Vendor(1)/Label_A_train.txt'
+imagepath = r'../Different_Vendor/TRAIN_A'
+labelpath = r'../Different_Vendor/TRAIN_LABEL_A'
+imgid = r'../Different_Vendor/Img_A_train.txt'
+labelid = r'../Different_Vendor/Label_A_train.txt'
 img_ids = [i_id.strip() for i_id in open(imgid)]
 label_ids = [i_id.strip() for i_id in open(labelid)]
 
-test_imagepath = r'../Different_Vendor(1)/TEST_A'
-test_labelpath = r'../Different_Vendor(1)/TEST_LABEL_A'
-imgid = r'../Different_Vendor(1)/Img_A_test.txt'
-labelid = r'../Different_Vendor(1)/Label_A_test.txt'
+test_imagepath = r'../Different_Vendor/TEST_A'
+test_labelpath = r'../Different_Vendor/TEST_LABEL_A'
+imgid = r'../Different_Vendor/Img_A_test.txt'
+labelid = r'../Different_Vendor/Label_A_test.txt'
 testimg_ids = [i_id.strip() for i_id in open(imgid)]
 testlabel_ids = [i_id.strip() for i_id in open(labelid)]
 
