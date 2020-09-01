@@ -1,5 +1,6 @@
 import numpy as np
 import torch
+from criterions import sigmoid_dice_loss
 
 
 def dice_coeff(pred, target):
@@ -74,4 +75,11 @@ if __name__ == '__main__':
                          [0, 0, 0, 0]])
     target = torch.tensor([[1, 2, 1, 2],
                            [0, 0, 0, 0]])
+    C = 3
+    pred_onehot = pred.unsqueeze(2)
+    pred_onehot = torch.zeros(pred.shape[0], pred.shape[1], C).scatter_(2, pred_onehot, 1)
+    print(pred_onehot.shape)
+
     print(dice_coeff(pred, target))
+    print(pred_onehot.shape, target.shape)
+    print(sigmoid_dice_loss(pred_onehot, target, 1e-4))

@@ -6,6 +6,8 @@ import PIL.Image as Image
 import nibabel as nib
 from scipy.ndimage import rotate
 from torch.utils.data import DataLoader
+from PIL import Image
+from tool.makelist import makedatalist
 from torchvision import transforms
 
 imagepath = r'../Different_Vendor/TRAIN_A'
@@ -104,38 +106,40 @@ class LiverDataset(data.Dataset):
 
 
 if __name__ == '__main__':
+  #   image_path = "/home/laisong/MRI2IMG/TRAIN_LABEL(A)/ED_A0S9V9_sa_5.png"
+  #    # 读取图片
+  #
+  #   image = Image.open(image_path)
+  #     # 输出图片维度
+  #   img_np = np.asarray(image)
+  #   print(img_np)
+  # # 显示图片
+  #   image.show()
 
     liver_dataset = LiverDataset(test_imagepath, test_labelpath, testimg_ids, testlabel_ids, False)
     dataloader = DataLoader(liver_dataset, batch_size=1, shuffle=False, num_workers=1)
     i = 0
-    for img, label, imgfile, labelfile in dataloader:
-        print(img.shape, label.shape, imgfile, labelfile)
-        # s1 = ''.join(imgfile)
-        # s2 = ''.join(labelfile)
-        # img = torch.squeeze(img)
-        # img = img.numpy().astype(float)
-        # img = img.transpose(1, 2, 0)
-        # img90 = rotate(img,90,(0,1),reshape=False,cval=0)
-        # new_image = nib.Nifti1Image(img90, np.eye(4))
-        # nib.save(new_image, r'/home/yjj/MMs/LS/rotate90/90_'+s1)
-        # label = torch.squeeze(label)
-        # label = label.numpy().astype(float)
-        # label = label.transpose(1, 2, 0)
-        # label90 = rotate(label, 90, (0, 1), reshape=False, cval=0)
-        # new_label = nib.Nifti1Image(label90, np.eye(4))
-        # nib.save(new_label, r'/home/yjj/MMs/LS/rotate90label/90_' + s2)
-        i += 1
-    print(i)
+    for img, lab, imgfile, labelfile in dataloader:
+        # print(img.shape, lab.shape, imgfile, labelfile)
+        img = img.squeeze().numpy()
+        label = lab.squeeze().numpy()
+        slice = img.shape[0]
+        imgfile = imgfile[0]
+        imgfile = imgfile.replace('.nii.gz','')
+        labelfile = labelfile[0] # .replace(, new[, max])
+        labelfile = labelfile.replace('.nii.gz', '')
+        # print(img.shape, label.shape, imgfile, labelfile)
+        for index in range(slice):
+            image_2d = img[index]*255  # pixel: 0~1
+            # print(label.shape)
+            label_2d = label[index]*255/3
+            # print(label_2d.shape)
+            # print(np.max(label_2d))
+            im_2d = Image.fromarray(image_2d)
+            lab_2d = Image.fromarray(label_2d)
+            im_2d = im_2d.convert(mode='L')
+            im_2d.save('/home/laisong/MRI2IMG/VAL_IMG(A)/'+imgfile+'_%i.png'%index)
+            lab_2d = lab_2d.convert(mode='L')
+            lab_2d.save('/home/laisong/MRI2IMG/VAL_LABEL(A)/' + labelfile + '_%i.png' % index)
 
-    # dataiter = enumerate(dataloader)
-    # _, batch = dataiter.__next__()
-    # images, labels = batch
-    # # print(images.shape)
-    # images = torch.squeeze(images)
-    # # print(images.shape)
-    # # print(torch.max(images, 2))
-    # label_1 = images[1,:,:]
-    # for i in range(192):
-    #     for j in range(192):
-    #         if label_1[i][j]<0:
-    #             print(label_1[i][j])
+

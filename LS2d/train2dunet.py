@@ -11,12 +11,14 @@ from torch.utils.data import DataLoader
 from advanced_model import CleanU_Net
 from ResNetUNet import ResNetUNet
 from transform import imageaug
+from loss import DiceLoss
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-learning_rate = 5e-4
+learning_rate = 1e-3
+DICE_loss = DiceLoss()
 
 
-def train_model(model, criterion, optimizer, dataload, num_epochs=300):
+def train_model(model, criterion, optimizer, dataload, num_epochs=400):
     # model.load_state_dict(torch.load('./3dunet_model_save/weights_199.pth'))
     for epoch in range(num_epochs):
         save_loss = []
@@ -51,7 +53,14 @@ def train_model(model, criterion, optimizer, dataload, num_epochs=300):
                 labels = label_train.long().to(device)
                 outputs = model(inputs)  # 前向传播
 
-                # print(outputs.shape, labels.shape)
+                """
+                outputs.shape = [N,C,H,W]
+                label.shape = [N,H,W]
+                  N: BatchSize
+                  C: ClassNum
+                  H * W: Size of img
+                """
+
                 loss_2d = criterion(outputs, labels)
                 # print(loss)
 
@@ -66,7 +75,7 @@ def train_model(model, criterion, optimizer, dataload, num_epochs=300):
         print("epoch %d loss:%0.6f" % (epoch, epoch_loss))
 
         # if (epoch+1) % 50 == 0:
-        optimizer.param_groups[0]["lr"] = optimizer.param_groups[0]["lr"] * 0.98
+        optimizer.param_groups[0]["lr"] = optimizer.param_groups[0]["lr"] * 0.9
 
         if (epoch + 1) % 10 == 0:
             torch.save(model.state_dict(), './3dunet_model_save/weights_%d.pth' % epoch)  # 返回模型的所有内容

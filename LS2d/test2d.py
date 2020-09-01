@@ -8,6 +8,7 @@ import nibabel as nib
 from nibabel import nifti1
 from nibabel.viewers import OrthoSlicer3D
 
+from Dice_loss import MulticlassDiceLoss
 from metrics import dice_coeff
 import torch
 from Newunet import Insensee_3Dunet
@@ -18,6 +19,7 @@ from advanced_model import DeepSupervision_U_Net
 from ResNetUNet import ResNetUNet
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+dice_loss = MulticlassDiceLoss()
 
 
 def saveresult2d(test_loader, model):
@@ -59,9 +61,10 @@ def test_model():
     save = 0
     # for index in range(100):
     # model = DeepSupervision_U_Net(1, 4).to(device)
-    model = ResNetUNet(4).to(device)
+    # model = ResNetUNet(4).to(device)
+    model = CleanU_Net(in_channels=1, out_channels=4).to(device)
     # print(model)
-    model.load_state_dict(torch.load('/home/laisong/github/ResnetUnet_model_save_lr=1e-e_0.5/weights_149.pth'))
+    model.load_state_dict(torch.load('/home/laisong/github/MMs/LS2d/3dunet_model_save/weights_299.pth'))
     test_dataset = MRIdataset.LiverDataset(MRIdataset.test_imagepath, MRIdataset.test_labelpath,
                                            MRIdataset.testimg_ids, MRIdataset.testlabel_ids, False)
 
@@ -116,7 +119,7 @@ def test_model():
     # new_label = nib.Nifti1Image(label, np.eye(4))
     # nib.save(new_label, r'/home/peng/Desktop/CROP/train2test/label_%d.nii.gz' % i)
 
-    for img, label, _, _ in test_loader:
+    for img, label, _, _ in train_loader:
         if i < 50:
             img = torch.squeeze(img)
             label = torch.squeeze(label)
