@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6dafad57-20c6-4503-b16b-4d42107cd4b5" name="Default Changelist" comment="">
+    <list default="true" id="6dafad57-20c6-4503-b16b-4d42107cd4b5" name="Default Changelist" comment="add_test">
       <change afterPath="$PROJECT_DIR$/../LS/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/.idea/ACDC_segmentation-master.iml" beforeDir="false" />
@@ -37,11 +37,6 @@
       <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/utils/find_ratio.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/utils/utils.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Loss_visualized.py" beforeDir="false" afterPath="$PROJECT_DIR$/Loss_visualized.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/criterions.py" beforeDir="false" afterPath="$PROJECT_DIR$/criterions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/metrics.py" beforeDir="false" afterPath="$PROJECT_DIR$/metrics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test2d.py" beforeDir="false" afterPath="$PROJECT_DIR$/test2d.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train2dunet.py" beforeDir="false" afterPath="$PROJECT_DIR$/train2dunet.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../acdc_challenge-master/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../acdc_challenge-master/README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../acdc_challenge-master/__init__.py" beforeDir="false" />
@@ -258,7 +253,21 @@
       <option name="project" value="LOCAL" />
       <updated>1599035921611</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add_test">
+      <created>1599045506240</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1599045506240</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add_test">
+      <created>1599045648214</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1599045648214</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -277,6 +286,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add data_augmentation" />
     <MESSAGE value="2d_segmentation" />
-    <option name="LAST_COMMIT_MESSAGE" value="2d_segmentation" />
+    <MESSAGE value="add_test" />
+    <option name="LAST_COMMIT_MESSAGE" value="add_test" />
   </component>
 </project>
