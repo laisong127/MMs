@@ -106,6 +106,7 @@ class LiverDataset(data.Dataset):
 
 
 if __name__ == '__main__':
+    pass
   #   image_path = "/home/laisong/MRI2IMG/TRAIN_LABEL(A)/ED_A0S9V9_sa_5.png"
   #    # 读取图片
   #
@@ -116,30 +117,30 @@ if __name__ == '__main__':
   # # 显示图片
   #   image.show()
 
-    liver_dataset = LiverDataset(test_imagepath, test_labelpath, testimg_ids, testlabel_ids, False)
-    dataloader = DataLoader(liver_dataset, batch_size=1, shuffle=False, num_workers=1)
-    i = 0
-    for img, lab, imgfile, labelfile in dataloader:
-        # print(img.shape, lab.shape, imgfile, labelfile)
-        img = img.squeeze().numpy()
-        label = lab.squeeze().numpy()
-        slice = img.shape[0]
-        imgfile = imgfile[0]
-        imgfile = imgfile.replace('.nii.gz','')
-        labelfile = labelfile[0] # .replace(, new[, max])
-        labelfile = labelfile.replace('.nii.gz', '')
-        # print(img.shape, label.shape, imgfile, labelfile)
-        for index in range(slice):
-            image_2d = img[index]*255  # pixel: 0~1
-            # print(label.shape)
-            label_2d = label[index]*255/3
-            # print(label_2d.shape)
-            # print(np.max(label_2d))
-            im_2d = Image.fromarray(image_2d)
-            lab_2d = Image.fromarray(label_2d)
-            im_2d = im_2d.convert(mode='L')
-            im_2d.save('/home/laisong/MRI2IMG/VAL_IMG(A)/'+imgfile+'_%i.png'%index)
-            lab_2d = lab_2d.convert(mode='L')
-            lab_2d.save('/home/laisong/MRI2IMG/VAL_LABEL(A)/' + labelfile + '_%i.png' % index)
+    # liver_dataset = LiverDataset(test_imagepath, test_labelpath, testimg_ids, testlabel_ids, False)
+    # dataloader = DataLoader(liver_dataset, batch_size=1, shuffle=False, num_workers=1)
+    # i = 0
+    # for img, lab, imgfile, labelfile in dataloader:
+    #     # print(img.shape, lab.shape, imgfile, labelfile)
+    #     img = img.squeeze().numpy()
+    #     label = lab.squeeze().numpy()
+    #     slice = img.shape[0]
+    #     imgfile = imgfile[0]
+    #     imgfile = imgfile.replace('.nii.gz','')
+    #     labelfile = labelfile[0] # .replace(, new[, max])
+    #     labelfile = labelfile.replace('.nii.gz', '')
+    #     # print(img.shape, label.shape, imgfile, labelfile)
+    #     for index in range(slice):
+    #         image_2d = img[index]*255  # pixel: 0~1
+    #         # print(label.shape)
+    #         label_2d = label[index]*255/3
+    #         # print(label_2d.shape)
+    #         # print(np.max(label_2d))
+    #         im_2d = Image.fromarray(image_2d)
+    #         lab_2d = Image.fromarray(label_2d)
+    #         im_2d = im_2d.convert(mode='L')
+    #         im_2d.save('/home/laisong/MRI2IMG/VAL_IMG(A)/'+imgfile+'_%i.png'%index)
+    #         lab_2d = lab_2d.convert(mode='L')
+    #         lab_2d.save('/home/laisong/MRI2IMG/VAL_LABEL(A)/' + labelfile + '_%i.png' % index)
 
 

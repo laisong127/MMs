@@ -8,7 +8,7 @@ import nibabel as nib
 from nibabel import nifti1
 from nibabel.viewers import OrthoSlicer3D
 
-from Dice_loss import MulticlassDiceLoss
+from loss import DiceLoss
 from metrics import dice_coeff
 import torch
 from Newunet import Insensee_3Dunet
@@ -90,34 +90,6 @@ def test_model():
     Myo_Jac = 0
     i = 0
 
-    # _, batch = train_iter.__next__()
-    # _, batch = train_iter.__next__()
-    # img, label= batch
-    # i = 1
-    # # print(img.shape)
-    # # img =torch.squeeze(img)
-    # # img = img.numpy().astype(float)
-    # # img = img.transpose(1, 2, 0)
-    # # new_image = nib.Nifti1Image(img, np.eye(4))
-    # # nib.save(new_image, r'/home/peng/Desktop/CROP/train2test/trainimg_%d.nii.gz' % i)
-    #
-    # img = img.to(device)
-    # pred = torch.argmax(model(img), 1)
-    # pred = pred.cpu()
-    # pred = torch.squeeze(pred)
-    # pred = pred.numpy().astype(float)
-    # pred = pred.transpose(1, 2, 0)
-    #
-    # label = torch.squeeze(label)
-    # label = label.numpy().astype(float)
-    # label = label.transpose(1, 2, 0)
-    #
-    #
-    # new_image = nib.Nifti1Image(pred, np.eye(4))
-    # nib.save(new_image, r'/home/peng/Desktop/CROP/train2test/pred_%d.nii.gz' % i)
-    #
-    # new_label = nib.Nifti1Image(label, np.eye(4))
-    # nib.save(new_label, r'/home/peng/Desktop/CROP/train2test/label_%d.nii.gz' % i)
 
     for img, label, _, _ in train_loader:
         if i < 50:

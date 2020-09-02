@@ -66,6 +66,7 @@ class BinaryDiceLoss(nn.Module):
 
 class DiceLoss(nn.Module):
     """Dice loss, need one hot encode input, predict didn't need softmax or sigmoid
+       diceloss = 1 - 2 * (A * B) / (A + B)
     Args:
         weight: An array of shape [num_classes,]
         ignore_index: class index to ignore
@@ -83,7 +84,7 @@ class DiceLoss(nn.Module):
 
     def forward(self, predict, target):
         target = make_one_hot(target, predict.shape[1])
-        print(predict.shape,target.shape)
+        # print(predict.shape,target.shape)
         assert predict.shape == target.shape, 'predict & target shape do not match'
         dice = BinaryDiceLoss(**self.kwargs)
         total_loss = 0
@@ -101,10 +102,10 @@ class DiceLoss(nn.Module):
 
         return total_loss/target.shape[1]
 
-# if __name__=='__main__':
-#     label = torch.randint(0,1,(1,1,1,2))
-#     pred = torch.rand(1,1,1,2)
-#     print(label)
-#     print(pred)
-#     loss = DiceLoss()
-#     print(loss(pred, label).item())
+
+if __name__=='__main__':
+    label = torch.randint(0,4,(1,1,2,2))
+    pred = torch.rand(1,4,2,2)
+    print(label)
+    print(pred)
+    print(DiceLoss()(pred,label))

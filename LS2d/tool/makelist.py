@@ -23,7 +23,16 @@ def makedatalist(imgpath, listpath):
 
     f.close()
 
-imagepath = r'/home/laisong/ACDC2017/train_lab'
-listpath = r'ACDC2017_LAB.txt'
+imagepath = r'/home/laisong/MRI2IMG/TRAIN_IMG(A)'
+listpath = r'/home/laisong/MRI2IMG//train_img.txt'
+makedatalist(imagepath,listpath)
+imagepath = r'/home/laisong/MRI2IMG/TRAIN_LABEL(A)'
+listpath = r'/home/laisong/MRI2IMG//tain_label.txt'
+makedatalist(imagepath,listpath)
+imagepath = r'/home/laisong/MRI2IMG/VAL_IMG(A)'
+listpath = r'/home/laisong/MRI2IMG//val_img.txt'
+makedatalist(imagepath,listpath)
+imagepath = r'/home/laisong/MRI2IMG/VAL_LABEL(A)'
+listpath = r'/home/laisong/MRI2IMG//val_label.txt'
 makedatalist(imagepath,listpath)
 # print('%.1f' % 0.96)

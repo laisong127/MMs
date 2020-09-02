@@ -216,8 +216,8 @@ class CleanU_Net(nn.Module):
 
 if __name__ == "__main__":
     # A full forward pass
-    im = torch.randn(1, 1, 512, 512)
-    model = DeepSupervision_U_Net(1, 4)
+    im = torch.randn(10, 1, 192, 192)
+    model = CleanU_Net(1, 4)
     x = model(im)
     print(x.shape)
     del model

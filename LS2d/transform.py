@@ -20,10 +20,16 @@ def imageaug(img_label):
         # iaa.Crop(percent=(0, 0.1)),
         iaa.Sometimes(0.3, iaa.ElasticTransformation(alpha=(0, 10.0), sigma=(4.0, 6.0)))  # 把像素移动到周围的地方
     ])
-    label = img_label[:, :, 1]
-    imglab_aug = seq.augment_image(img_label)
-    img_aug = imglab_aug[:, :, 0]
-    lab_aug = imglab_aug[:, :, 1]
+    label = img_label[1]
+    imglab_aug = seq.augment_images(img_label)
+    imglab_aug = imglab_aug.transpose((3,0,1,2))
+    img_aug = imglab_aug[0]
+    img_aug_shape = img_aug.shape
+    img_aug = img_aug.reshape(img_aug_shape[0],1,img_aug_shape[1],img_aug_shape[2])
+    lab_aug = imglab_aug[1]
+    lab_aug_shape = lab_aug.shape
+    lab_aug = lab_aug.reshape(lab_aug_shape[0],1,lab_aug_shape[1],lab_aug_shape[2])
+    # print(img_aug.shape)
     lab_aug = np.clip(np.round(lab_aug), np.min(label), np.max(label))
     return img_aug, lab_aug
 
