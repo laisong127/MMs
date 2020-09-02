@@ -49,7 +49,7 @@ def train_model(model, criterion, optimizer, dataload, num_epochs=200):
             """
 
             BatchLoss_2d = criterion(outputs, labels)
-            save_loss.append(epoch)
+            save_loss.append(epoch_loss)
             BatchLoss_2d.backward()
 
             """

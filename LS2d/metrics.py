@@ -1,6 +1,6 @@
 import numpy as np
 import torch
-from criterions import sigmoid_dice_loss
+from criterions import sigmoid_dice
 
 
 def dice_coeff(pred, target):
@@ -12,7 +12,7 @@ def dice_coeff(pred, target):
         elif 'PIL' in str(type(item)):
             item = np.array(item)
         elif 'torch' in str(type(item)):
-            item = item.detach().numpy()
+            item = item.cpu().numpy()
         np_ims.append(item)
 
     pred = np_ims[0]
@@ -84,4 +84,4 @@ if __name__ == '__main__':
 
     print(dice_coeff(pred, target))
     print(pred_onehot.shape, target.shape)
-    print(sigmoid_dice_loss(pred_onehot, target, 1e-4))
+    print(sigmoid_dice(pred_onehot, target, 1e-4))

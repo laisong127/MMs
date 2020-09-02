@@ -3,16 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6dafad57-20c6-4503-b16b-4d42107cd4b5" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/../LS/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HSC82.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MRI2IMG_dataset.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/networks/__Init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/networks/custom_layers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/networks/init_weight.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/networks/multi_task_unet.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/networks/myloss.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/networks/unet_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/networks/unet_parts.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/networks/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/.idea/ACDC_segmentation-master.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
@@ -47,17 +37,11 @@
       <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/utils/find_ratio.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../ACDC_segmentation-master/utils/utils.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ED_A0S9V9_sa_0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MRIdataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/MRIdataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/advanced_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/advanced_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Loss_visualized.py" beforeDir="false" afterPath="$PROJECT_DIR$/Loss_visualized.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/criterions.py" beforeDir="false" afterPath="$PROJECT_DIR$/criterions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/loss.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/metrics.py" beforeDir="false" afterPath="$PROJECT_DIR$/metrics.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test2d.py" beforeDir="false" afterPath="$PROJECT_DIR$/test2d.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tool/makelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/tool/makelist.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train2dunet.py" beforeDir="false" afterPath="$PROJECT_DIR$/train2dunet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transform.py" beforeDir="false" afterPath="$PROJECT_DIR$/transform.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/u-net-2d.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../acdc_challenge-master/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../acdc_challenge-master/README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../acdc_challenge-master/__init__.py" beforeDir="false" />
@@ -126,8 +110,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.loss">
-    <configuration name="MRI2IMG_dataset" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.test2d">
+    <configuration name="Loss_visualized" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="LS" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -139,7 +123,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MRI2IMG_dataset.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Loss_visualized.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -190,6 +174,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test2d" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="LS" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test2d.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="train2dunet" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="LS" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -211,34 +216,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="unet_model" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="LS" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/networks" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/networks/unet_model.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test2d" />
+        <item itemvalue="Python.train2dunet" />
+        <item itemvalue="Python.Loss_visualized" />
         <item itemvalue="Python.loss" />
         <item itemvalue="Python.metrics" />
-        <item itemvalue="Python.train2dunet" />
-        <item itemvalue="Python.MRI2IMG_dataset" />
-        <item itemvalue="Python.unet_model" />
       </list>
     </recent_temporary>
   </component>
@@ -267,7 +251,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598960107130</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="2d_segmentation">
+      <created>1599035921611</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1599035921611</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -285,6 +276,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add data_augmentation" />
-    <option name="LAST_COMMIT_MESSAGE" value="add data_augmentation" />
+    <MESSAGE value="2d_segmentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="2d_segmentation" />
   </component>
 </project>

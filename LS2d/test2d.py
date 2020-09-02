@@ -8,18 +8,24 @@ import nibabel as nib
 from nibabel import nifti1
 from nibabel.viewers import OrthoSlicer3D
 
+from MRI2IMG_dataset import LiverDataset, val_imagepath, val_labelpath, valimg_ids, vallabel_ids, train_imagepath, \
+    train_labelpath, trainimg_ids, trainlabel_ids
 from loss import DiceLoss
 from metrics import dice_coeff
 import torch
 from Newunet import Insensee_3Dunet
+from criterions import softmax_dice_loss
 import MRIdataset
 from torch.utils.data import DataLoader
-from advanced_model import CleanU_Net
+from HSC82 import CleanU_Net
 from advanced_model import DeepSupervision_U_Net
 from ResNetUNet import ResNetUNet
+from loss import make_one_hot
+from metrics import dice_coeff
+
+from criterions import sigmoid_dice
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-dice_loss = MulticlassDiceLoss()
 
 
 def saveresult2d(test_loader, model):
@@ -59,26 +65,13 @@ def saveresult2d(test_loader, model):
 def test_model():
     MAX = 0
     save = 0
-    # for index in range(100):
-    # model = DeepSupervision_U_Net(1, 4).to(device)
-    # model = ResNetUNet(4).to(device)
-    model = CleanU_Net(in_channels=1, out_channels=4).to(device)
-    # print(model)
-    model.load_state_dict(torch.load('/home/laisong/github/MMs/LS2d/3dunet_model_save/weights_299.pth'))
-    test_dataset = MRIdataset.LiverDataset(MRIdataset.test_imagepath, MRIdataset.test_labelpath,
-                                           MRIdataset.testimg_ids, MRIdataset.testlabel_ids, False)
+    model = CleanU_Net(1,4).cuda(0)
+    model.load_state_dict(torch.load('/home/laisong/github/MMs/LS2d/3dunet_model_save/weights_149.pth'))
+    liver_dataset = LiverDataset(val_imagepath, val_labelpath, valimg_ids, vallabel_ids)
+    val_dataloader = DataLoader(liver_dataset, batch_size=1, shuffle=False, num_workers=4)
 
-    test_loader = DataLoader(test_dataset, batch_size=1, shuffle=False, num_workers=4)
-
-    train_dataset = MRIdataset.LiverDataset(MRIdataset.imagepath, MRIdataset.labelpath,
-                                            MRIdataset.img_ids, MRIdataset.label_ids, False)
-
-    train_loader = DataLoader(train_dataset, batch_size=1, shuffle=False, num_workers=4)
-
-    B_dataset = MRIdataset.LiverDataset(MRIdataset.B_imagepath, MRIdataset.B_labelpath,
-                                        MRIdataset.Bimg_ids, MRIdataset.Blabel_ids, False)
-
-    B_loader = DataLoader(B_dataset, batch_size=1, shuffle=False, num_workers=4)
+    train_dataset = LiverDataset(train_imagepath, train_labelpath, trainimg_ids, trainlabel_ids)
+    train_dataloader = DataLoader(train_dataset, batch_size=1, shuffle=False, num_workers=4)
 
     # train_iter = enumerate(train_loader)
     model.eval()
@@ -91,42 +84,28 @@ def test_model():
     i = 0
 
 
-    for img, label, _, _ in train_loader:
-        if i < 50:
-            img = torch.squeeze(img)
-            label = torch.squeeze(label)
-            LV_dice = 0
-            RV_dice = 0
-            Myo_dice = 0
-            for z in range(img.shape[0]):
-                img_2d = img[z, :, :]
-                label_2d = label[z, :, :]
-                img_2d = torch.unsqueeze(img_2d, 0)
-                img_2d = torch.unsqueeze(img_2d, 0)
-                img_2d = img_2d.to(device)
-                output = model(img_2d)
-                # print(output.shape)
-                pred = torch.argmax(output, 1)
-                # print(pred.shape, label.shape)
-                pred = pred.cpu()
+    for img, label, _, _ in val_dataloader:
+        img_val_tensor = img
+        label_val_tensor = label * 3
+        inputs = img_val_tensor.float().to(device)
+        labels = label_val_tensor.long().to(device)
+        outputs = model(inputs)
+        # print(outputs.shape)
+        pred = torch.argmax(outputs, 1)
+        # print(pred.shape, labels.shape)
+        # LV_dice, LV_jac, RV_dice, RV_jac, Myo_dice, Myo_jac = dice_coeff(pred,labels)
+        # print(pred.shape)
 
-                LV_dice_2d, LV_jac_2d, RV_dice_2d, RV_jac_2d, Myo_dice_2d, Myo_jac_2d = dice_coeff(pred, label_2d)
-                LV_dice += LV_dice_2d
-                RV_dice += RV_dice_2d
-                Myo_dice += Myo_dice_2d
+        pred = pred.unsqueeze(0)
+        pred_onehot = make_one_hot(pred,4).cpu()
+        labels = labels.cpu()
+        LV_dice, RV_dice, Myo_dice,_ = sigmoid_dice(pred_onehot,labels)
 
-            LV_dice /= img.shape[0]
-            RV_dice /= img.shape[0]
-            Myo_dice /= img.shape[0]
+        print('LV_dice:{:.4f} | RV_dice:{:.4f} | Myo_dice:{:.4f}'.format(LV_dice, RV_dice, Myo_dice))
+        LV_Dice += LV_dice
+        RV_Dice += RV_dice
+        Myo_Dice += Myo_dice
 
-            LV_Dice += LV_dice
-            RV_Dice += RV_dice
-            Myo_Dice += Myo_dice
-
-            print('LV_Dice_%d:' % i, '%.6f' % LV_dice, '||', 'RV_Dice_%d:' % i, '%.6f' % RV_dice, '||'
-                  , 'Myo_Dice_%d:' % i, '%.6f' % Myo_dice)
-
-            i += 1
     print('===============================================')
     print('LV_Dice_avg:', LV_Dice / i, 'RV_Dice_avg:', RV_Dice / i, 'Myo_Dice_avg:', Myo_Dice / i)
     # if (LV_Dice/i+RV_Dice/i+Myo_Dice/i) > MAX:

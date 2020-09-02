@@ -2,8 +2,9 @@ import torch.nn.functional as F
 import torch
 import logging
 import torch.nn as nn
+from loss import make_one_hot
 
-__all__ = ['sigmoid_dice_loss', 'softmax_dice_loss', 'GeneralizedDiceLoss', 'FocalLoss', 'dice']
+# __all__ = ['sigmoid_dice_loss', 'softmax_dice_loss', 'GeneralizedDiceLoss', 'FocalLoss', 'dice']
 
 cross_entropy = F.cross_entropy
 
@@ -32,27 +33,27 @@ def FocalLoss(output, target, alpha=0.25, gamma=2.0):
 
 def dice(output, target, eps=1e-5):  # soft dice loss
     target = target.float()
-    # num = 2*(output*target).sum() + eps
-    num = 2 * (output * target).sum()
+    num = 2*(output*target).sum() + eps
+    # num = 2 * (output * target).sum()
     den = output.sum() + target.sum() + eps
     return num / den
 
 
-def sigmoid_dice_loss(output, target, alpha=1e-4):
+def sigmoid_dice(output, target, alpha=1e-4):
     """
-    outputs.shape = [N,C,H,W]
-    target.shape = [N,H,W]
+    outputs.shape = [N,C,...]
+    target.shape = [N,...]
       N: BatchSize
       C: ClassNum
-      H * W: Size of img
+      ...: Size of img
     """
-    LV_dice = dice(output[:,1,...], (target == 1).float(), eps=alpha)
-    Myo_dice = dice(output[:,2,...], (target == 2).float(), eps=alpha)
-    RV_dice = dice(output[:,3,...], (target == 3).float(), eps=alpha)
+
+    LV_dice = dice(output[:,1,...], (target == 1).float(), eps=alpha).item()
+    Myo_dice = dice(output[:,2,...], (target == 2).float(), eps=alpha).item()
+    RV_dice = dice(output[:,3,...], (target == 3).float(), eps=alpha).item()
     # logging.info('1:{:.4f} | 2:{:.4f} | 3:{:.4f}'.format(1-loss1.data, 1-loss2.data, 1-loss3.data))
-    print('1:{: .4f} | 2:{: .4f} | 3:{: .4f}'.format(LV_dice, Myo_dice, RV_dice))
-    return (3-LV_dice + Myo_dice + RV_dice) / 3
-    # return loss1+loss2+loss3
+    # print('1:{: .4f} | 2:{: .4f} | 3:{: .4f}'.format(LV_dice, Myo_dice, RV_dice))
+    return LV_dice, RV_dice, Myo_dice, (3-LV_dice + Myo_dice + RV_dice) / 3
 
 
 def softmax_dice_loss(output, target, eps=1e-5):  #
